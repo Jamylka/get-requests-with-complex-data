@@ -1,4 +1,4 @@
-const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require("constants");
+
 
 const apiKey = 'xSTfemNCkji4hh10paKKENF7PL1FrfdkxxboFK9a';
 
@@ -22,11 +22,12 @@ function displayResults(responseJson) {
 }
 
 function getParks(stateSelect, maxResults) {
+
   const params = {
     stateCode: [stateSelect],
-    limit: maxResults
+    limit: maxResults,
     api_key: apiKey
-  };
+  }
 
   const queryString = formatQueryParams(params);
   const url = searchURL + '?' + queryString;
@@ -44,7 +45,6 @@ function getParks(stateSelect, maxResults) {
   .catch (err => {
     $('#js-error-message').text(`Something went wrong: ${err.message}`);
   });
-
 }
 
 function watchForm() {
